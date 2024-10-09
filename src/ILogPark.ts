@@ -4,5 +4,5 @@ import { ParkLogEntry } from "./ParkLogEntry.js";
 
 export interface ILogPark{
     logParkingCheckin(newEntry:ParkLogEntry,park:Park):void;
-    //logParkingCheckout(car:Car, park:Park):void;
+    logParkingCheckout(newEntry:ParkLogEntry, park:Park):void;
 }
