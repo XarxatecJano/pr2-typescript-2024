@@ -20,16 +20,13 @@ document.querySelector("#newParkLogEntryButton")!.addEventListener("click", ()=>
     parking.addParkingLogEntry(newParkEntry);
 });
 
+//TO-DO: controlar matrículas que no existen 
 document.querySelector("#newCheckoutButton")!.addEventListener("click", ()=>{
     const promptResponse:string|null = prompt("Dame la matrícula del coche que sale del parking");
     const plate:string = promptResponse?promptResponse:"";
-    console.log(plate);
     let carPark:ILogPark = parking.getNewPark(plate);
-    console.log(carPark);
     let lastEntry: ParkLogEntry = parking.getLastLogEntry(plate);
-    console.log(lastEntry);
     carPark.logParkingCheckout(lastEntry,parking);
-    console.log(parking);
 });
 
 document.querySelector("#newOfficialCarEntryButton")!.addEventListener("click", ()=>{
@@ -57,7 +54,7 @@ document.querySelector("#newMonthButton")!.addEventListener("click", ()=>{
 document.querySelector("#incomeReportButton")!.addEventListener("click", ()=>{
     let data = "Matrícula           Tiempo estacionado             Importe\n";
     parking.residentCars.forEach((car)=>{
-        data+=`${car.plate}             ${car.lastMonthTotalMinutesParked}             ${(car.lastMonthTotalMinutesParked*0.002).toFixed(2)}€\n`;
+        data+=`${car.plate}                ${car.lastMonthTotalMinutesParked} min.                  ${(car.lastMonthTotalMinutesParked*0.002).toFixed(2)}€\n`;
     });
     console.log(data);
 });

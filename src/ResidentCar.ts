@@ -18,7 +18,7 @@ export class ResidentCar extends Car{
     set lastMonthTotalMinutesParked(time:number){
         this.#lastMonthTotalMinutesParked = time;
     }
-    
+
     addParkEntryTime(parkEntry: ParkLogEntry){
         this.#lastMonthTotalMinutesParked += parkEntry.getTimeParked();
     }

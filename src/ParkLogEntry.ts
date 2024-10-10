@@ -29,7 +29,7 @@ export class ParkLogEntry {
 
     getTimeParked():number{
         let time=0;
-        if (this.#checkOutDate && this.checkInDate) time=(this.#checkOutDate.getTime() - this.checkInDate.getTime())/(1000*60);
+        if (this.#checkOutDate && this.checkInDate) time=Math.round(((this.#checkOutDate.getTime() - this.checkInDate.getTime())/(1000*60))*100)/100;
         return time;
     }
 
