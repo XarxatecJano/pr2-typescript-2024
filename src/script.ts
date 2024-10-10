@@ -17,17 +17,15 @@ document.querySelector("#newParkLogEntryButton")!.addEventListener("click", ()=>
     const plate:string = promptResponse?promptResponse:"";
     let car: Car = parking.getCarParked(plate);
     let newParkEntry = new ParkLogEntry(car);
-    console.log(newParkEntry);
     parking.addParkingLogEntry(newParkEntry);
-    console.log(parking);
 });
 
 document.querySelector("#newCheckoutButton")!.addEventListener("click", ()=>{
     const promptResponse:string|null = prompt("Dame la matrícula del coche que sale del parking");
     const plate:string = promptResponse?promptResponse:"";
     console.log(plate);
-    let carPark:ILogPark = parking.getNewPark(plate)
-    
+    let carPark:ILogPark = parking.getNewPark(plate);
+    console.log(carPark);
     let lastEntry: ParkLogEntry = parking.getLastLogEntry(plate);
     console.log(lastEntry);
     carPark.logParkingCheckout(lastEntry,parking);

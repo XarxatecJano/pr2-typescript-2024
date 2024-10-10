@@ -11,7 +11,7 @@ export class RegularPark implements ILogPark{
 
     generateReceipt(entry: ParkLogEntry):string{
         let timeParked:number = entry.getTimeParked();
-        return `Duración de la estancia: ${timeParked}\nTotal a pagar: ${timeParked*0.02}€`
+        return `Duración de la estancia: ${timeParked.toFixed(2)} minutes\nTotal a pagar: ${(timeParked*0.02).toFixed(2)}€`
     }
 
     logParkingCheckout(entry: ParkLogEntry, park: Park): void {
