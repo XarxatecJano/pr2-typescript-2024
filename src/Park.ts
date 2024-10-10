@@ -84,8 +84,9 @@ export class Park{
     }
 
     getLastLogEntry(plate:string):ParkLogEntry{
-        return this.#parkingLog.filter((entry)=>{
-                     entry.car.plate == plate;})[length-1];
+        const lastLogs =  this.#parkingLog.filter((entry)=>{
+                    return entry.car.plate == plate;});
+        return lastLogs[lastLogs.length-1];
     }
 
 }

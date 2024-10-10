@@ -5,12 +5,17 @@ export class ParkLogEntry {
     #checkInDate: Date;
     #checkOutDate?: Date;
 
+    constructor(car:Car){
+        this.#car = car;
+        this.#checkInDate = new Date(Date.now());
+    }
+
     get car():Car{
         return this.#car;
     }
 
     get checkInDate():Date{
-        return this.checkInDate;
+        return this.#checkInDate;
     }
 
     get checkOutDate():Date{
@@ -21,10 +26,6 @@ export class ParkLogEntry {
         this.#checkOutDate = new Date(now);
     }
 
-    constructor(car:Car){
-        this.#car = car;
-        this.#checkInDate = new Date(Date.now());
-    }
 
     getTimeParked():number{
         let time=0;
