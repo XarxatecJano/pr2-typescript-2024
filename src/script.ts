@@ -1,14 +1,8 @@
 import { Car } from "./Car.js";
 import { ILogPark } from "./ILogPark.js";
-import { OfficialCar } from "./OfficialCar.js";
-import { OfficialPark } from "./OfficialPark.js";
 import { Park } from "./Park.js";
 import { ParkLogEntry } from "./ParkLogEntry.js";
-import { RegularCar } from "./RegularCar.js";
-import { RegularPark } from "./RegularPark.js";
 import { ResidentCar } from "./ResidentCar.js";
-import { ResidentPark } from "./ResidentPark.js";
-import * as fs from "fs";
 
 const parking = new Park();
 
@@ -32,7 +26,7 @@ document.querySelector("#newCheckoutButton")!.addEventListener("click", ()=>{
 document.querySelector("#newOfficialCarEntryButton")!.addEventListener("click", ()=>{
     const promptResponse:string|null = prompt("Dame la matrícula del coche oficial que entra");
     const plate:string = promptResponse?promptResponse:"";
-    let newOfficialCar = new OfficialCar(plate);
+    let newOfficialCar = new Car(plate);
     parking.addOfficialCar(newOfficialCar);
 });
 

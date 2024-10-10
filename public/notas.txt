@@ -1,0 +1,4 @@
+1. No tiene sentido el atributo type, no se usa para nada. 
+La clase Official Car no hace nada y Resident car no hacen nada especial, pero es posible que en un futuro 
+lo hicieran. Solo tendría sentido tenerlas para guardar el precio por minuto y creo que eso iría mejor con 
+el park.

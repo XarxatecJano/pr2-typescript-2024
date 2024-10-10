@@ -1,19 +1,17 @@
 import { Car } from "./Car.js";
 import { ILogPark } from "./ILogPark.js";
-import { OfficialCar } from "./OfficialCar.js";
 import { OfficialPark } from "./OfficialPark.js";
 import { ParkLogEntry } from "./ParkLogEntry.js";
-import { RegularCar } from "./RegularCar.js";
 import { RegularPark } from "./RegularPark.js";
 import { ResidentCar } from "./ResidentCar.js";
 import { ResidentPark } from "./ResidentPark.js";
 
 export class Park{
-    #officialCars:OfficialCar[]=[];
+    #officialCars:Car[]=[];
     #residentCars:ResidentCar[]=[];
     #parkingLog: ParkLogEntry[]=[];
 
-    get officialCars():OfficialCar[]{
+    get officialCars():Car[]{
         return this.#officialCars;
     }
 
@@ -25,11 +23,11 @@ export class Park{
         return this.#parkingLog;
     }
 
-    addOfficialCar(car:OfficialCar):void{
+    addOfficialCar(car:Car):void{
         this.#officialCars.push(car);
     }
 
-    removeOfficialCar(car:OfficialCar):void{
+    removeOfficialCar(car:Car):void{
         let targetCarIndex = this.#officialCars.map((car)=>{
             return car.plate}).indexOf(car.plate);
         if (targetCarIndex>=0) this.#officialCars.splice(targetCarIndex,1);
@@ -62,7 +60,7 @@ export class Park{
     }
 
     getCarParked(plate:string):Car{
-        let car: Car = new RegularCar(plate);
+        let car: Car = new Car(plate);
         let indexOfPlateInOfficialCarsList = this.#officialCars.map((car)=>{
             return car.plate}).indexOf(plate);
         if (indexOfPlateInOfficialCarsList!=-1) car = this.#officialCars[indexOfPlateInOfficialCarsList];
